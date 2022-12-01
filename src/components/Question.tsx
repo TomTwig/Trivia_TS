@@ -14,25 +14,7 @@ interface QuestionInterface {
 
 export default function Question(props: QuestionInterface) {
 
-function randomAnswer(){
-  const combineAnswers = props.incorrect_answers.filter(
-    (answer) => answer !== props.correct_answer
-  );
-  combineAnswers.push(props.correct_answer);
 
-  const randomizeAnswers = combineAnswers.sort(() => 0.5 - Math.random());
-
-  const answers = randomizeAnswers.map((answer, index) => {
-    return {
-      id: nanoid(),
-      answer: answer,
-      isSelected: false,
-      isCorrect: answer === props.correct_answer,
-    };
-  });
-
-  return answers
-}
 
   
   const combineAnswers = props.incorrect_answers.filter(
@@ -52,11 +34,31 @@ function randomAnswer(){
   });
 
   useEffect(()=>{
-    setPossibleAnswers(randomAnswer())
+
+
+      const combineAnswers = props.incorrect_answers.filter(
+        (answer) => answer !== props.correct_answer
+      );
+      combineAnswers.push(props.correct_answer);
+    
+      const randomizeAnswers = combineAnswers.sort(() => 0.5 - Math.random());
+    
+      const answers = randomizeAnswers.map((answer, index) => {
+        return {
+          id: nanoid(),
+          answer: answer,
+          isSelected: false,
+          isCorrect: answer === props.correct_answer,
+        };
+      });
+    
+     
+    
+    setPossibleAnswers(answers)
 
 
 
-  },[props.amountRounds])
+  },[props.amountRounds, props.correct_answer, props.incorrect_answers])
 
   console.log("answers",answers);
   
@@ -100,6 +102,7 @@ function randomAnswer(){
           );
         })}
       </div>
+      <hr></hr>
     </div>
   );
 }

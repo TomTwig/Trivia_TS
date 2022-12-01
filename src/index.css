@@ -14,10 +14,19 @@ body{
     justify-content: center;
 }
 
+h2{
+    font-weight: 700;
+}
+hr{
+    border: 1px solid rgba(105, 105, 105, 0.2);
+    border-width: 1px;
+}
+
 .container{
     display: flex;
     flex-direction: column;
     gap: 2em;
+  
 }
 
 .title{
@@ -35,10 +44,18 @@ body{
     flex-direction: column;
     gap: 1em;
     margin-top: 1em;
+    max-width: 650px;
+}
+
+
+.question h3{
+    text-align: center;
+
 }
 
 .questionsList{
-    max-width: 75%;
+
+   
 
 }
 
@@ -48,25 +65,32 @@ body{
     flex-direction: column;
 }
 button{
-    
-    border-radius: 10px;
-    border-width: 2px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, .2);
     padding: .5em 2em;
     background-color: white;
-    border-color: rgba(0, 0, 0, .2);
     font-size: 14px;
 }
 
 .selected button{
-  background-color: lightblue;
+  background-color: orange;
+  border-color: white;
+  font-weight: bolder;
+  color: white;
 }
 
 .green button{
     background-color: lightgreen;
+    border-color: white;
+    font-weight: bolder;
+    color: white;
 }
 
 .red button{
     background-color: lightcoral;
+    border-color: white;
+    font-weight: bolder;
+    color: white;
 }
 .checkButton {
     align-self: center;
