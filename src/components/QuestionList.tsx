@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import Question from "./Question";
 
-interface QuestionList {
+interface QuestionListInterface {
   isGameOver: boolean,
   amountRounds: number
 }
 
-export default function QuestionList(props:QuestionList) {
+export default function QuestionList(props:QuestionListInterface) {
 
-  interface Question {
+  interface QuestionInterface {
     id: string;
     correct_answer: string;
     incorrect_answers: string[];
@@ -23,7 +23,7 @@ export default function QuestionList(props:QuestionList) {
     async function getQuestions() {
       const response = await fetch(url);
       const data = await response.json();
-      const simplifyData = data.results.map((question:Question)=>{
+      const simplifyData = data.results.map((question:QuestionInterface)=>{
 
         return {
           id: question.id,
@@ -45,7 +45,7 @@ export default function QuestionList(props:QuestionList) {
       <h2>Questions</h2>
       <div className="questionsList__questions">
         {questions.length > 0
-          ? questions.map((question: Question) => {
+          ? questions.map((question: QuestionInterface) => {
               return (
                 <Question
                   key={question.id}
@@ -55,6 +55,7 @@ export default function QuestionList(props:QuestionList) {
                   question={question.question}
                   isSelected={question.isSelected}
                   isGameOver={props.isGameOver}
+                  amountRounds={props.amountRounds}
                  
                 />
               );

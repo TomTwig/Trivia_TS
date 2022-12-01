@@ -15,6 +15,8 @@ function App() {
     setAmountRounds((prevState)=>{
       return prevState + 1
     })
+
+    setIsGameOver(false);
   
   }
 
