@@ -15,6 +15,15 @@ button{
     background-color: white;
     
 }
+
 .selected button{
   background-color: lightblue;
+}
+
+.green button{
+    background-color: lightgreen;
+}
+
+.red button{
+    background-color: lightcoral;
 }
