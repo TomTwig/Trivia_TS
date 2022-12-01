@@ -24,8 +24,6 @@ export default function QuestionList() {
     getQuestions();
   }, []);
 
-  console.log(questions);
-
   return (
     <div className="questionsList">
       <h2>Questions</h2>
