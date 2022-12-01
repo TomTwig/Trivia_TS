@@ -1,0 +1,10 @@
+.question__answers{
+    display: flex;
+    gap: 1em;
+}
+
+.questionsList__questions{
+    display: flex;
+    gap: 0.5em;
+    flex-direction: column;
+}

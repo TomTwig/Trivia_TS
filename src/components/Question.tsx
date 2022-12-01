@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 
   interface Question {
     id: string;
@@ -8,12 +9,31 @@
 
 export default function Question(props:Question){
 
-    const answers = props.incorrect_answers;
+
+ useEffect(()=>{
+
+
+ },[])
+    const combineAnswers = props.incorrect_answers.filter((answer)=>answer !== props.correct_answer);
+    combineAnswers.push(props.correct_answer);
+    
+    
+    const randomizeAnswers = combineAnswers.sort(()=> 0.5 - Math.random());
+    console.log(randomizeAnswers);
+    
 
 
 
     return(
-<div className="Question">
+<div className="question">
+
+  <h3>{props.question}</h3>
+  <div className="question__answers">
+  {randomizeAnswers.map((answer)=>{
+    return <button>{answer}</button>
+  })}
+  </div>
+
 
     
 

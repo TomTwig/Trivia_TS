@@ -27,14 +27,16 @@ export default function QuestionList() {
   console.log(questions);
 
   return (
-    <div>
+    <div className="questionsList">
       <h2>Questions</h2>
-
-      {questions.length > 0
+<div className="questionsList__questions">
+{questions.length > 0
         ? questions.map((question: Question) =>{
             return <Question key={question.id} id={question.id} correct_answer={question.correct_answer} incorrect_answers={question.incorrect_answers} question={question.question}  />
         })
         : "Loading..."}
+</div>
+     
     </div>
   );
 }
