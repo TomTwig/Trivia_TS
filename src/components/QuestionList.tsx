@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Question from "./Question";
 
 interface QuestionList {
-
   isGameOver: boolean,
   amountRounds: number
 }
-
-
 
 export default function QuestionList(props:QuestionList) {
 
@@ -21,14 +18,11 @@ export default function QuestionList(props:QuestionList) {
   const [questions, setQuestions] = useState([]);
 
 
-
-
   useEffect(() => {
     const url: string = "https://opentdb.com/api.php?amount=5&type=multiple";
     async function getQuestions() {
       const response = await fetch(url);
       const data = await response.json();
-
       const simplifyData = data.results.map((question:Question)=>{
 
         return {
@@ -38,7 +32,6 @@ export default function QuestionList(props:QuestionList) {
           question: question.question,
           isSelected : false,
         }
-
       })
       setQuestions(() => {
         return simplifyData
@@ -47,14 +40,6 @@ export default function QuestionList(props:QuestionList) {
     getQuestions();
   }, [props.amountRounds]);
 
-
-
-
-
-  
-
-console.log("questions",questions);
-
   return (
     <div className="questionsList">
       <h2>Questions</h2>
@@ -62,9 +47,6 @@ console.log("questions",questions);
         {questions.length > 0
           ? questions.map((question: Question) => {
               return (
-                
-
-
                 <Question
                   key={question.id}
                   id={question.id}
@@ -73,8 +55,6 @@ console.log("questions",questions);
                   question={question.question}
                   isSelected={question.isSelected}
                   isGameOver={props.isGameOver}
-          
-                
                  
                 />
               );

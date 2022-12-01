@@ -1,43 +1,33 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Answer from "./Answer";
 import { nanoid } from "nanoid";
 
-
 interface QuestionInterface {
-  id: string,
-  correct_answer: string,
-  incorrect_answers: string[],
-  question: string,
-  isSelected: boolean,
-  isGameOver: boolean
+  id: string;
+  correct_answer: string;
+  incorrect_answers: string[];
+  question: string;
+  isSelected: boolean;
+  isGameOver: boolean;
 }
 
 export default function Question(props: QuestionInterface) {
-
-
   const combineAnswers = props.incorrect_answers.filter(
     (answer) => answer !== props.correct_answer
   );
   combineAnswers.push(props.correct_answer);
 
-
   const randomizeAnswers = combineAnswers.sort(() => 0.5 - Math.random());
 
-  const answers = randomizeAnswers.map((answer,index) => {
+  const answers = randomizeAnswers.map((answer, index) => {
     return {
       id: nanoid(),
-      answer:  randomizeAnswers[index],
+      answer: randomizeAnswers[index],
       isSelected: false,
       isCorrect: answer === props.correct_answer,
     };
   });
 
- 
-  
-
-
-
-  
   const [possibleAnswers, setPossibleAnswers] = useState(answers);
   interface AnswerInterface {
     id: string;
@@ -45,12 +35,6 @@ export default function Question(props: QuestionInterface) {
     isCorrect: boolean;
     isSelected: boolean;
   }
-
-
-
-  
-  console.log("answers", possibleAnswers);
-
 
   function handleClick(event: any, id: string) {
     setPossibleAnswers((possibleAnswers) => {
