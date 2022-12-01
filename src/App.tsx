@@ -24,16 +24,20 @@ function App() {
 
 
   return (
+    <>    
+    
+    <img className='background__image' src='../background_seamless.jpg' alt='background colorful polka'/>
     <div className="container">
 
-      <h1 className='title'>Trivia</h1>
+    <h1 className='title'>Trivia</h1>
 
-      <QuestionList isGameOver={isGameOver} amountRounds={amountRounds} />
+    <QuestionList isGameOver={isGameOver} amountRounds={amountRounds} />
 
-      <CheckButton handleGameOver={handleGameOver} playAgain={playAgain} isGameOver={isGameOver} />
-     
+    <CheckButton handleGameOver={handleGameOver} playAgain={playAgain} isGameOver={isGameOver} />
+   
 
-    </div>
+  </div></>
+
   );
 }
 
