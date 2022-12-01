@@ -42,7 +42,6 @@ export default function QuestionList(props:QuestionListInterface) {
 
   return (
     <div className="questionsList">
-      <h2>Questions</h2>
       <div className="questionsList__questions">
         {questions.length > 0
           ? questions.map((question: QuestionInterface) => {

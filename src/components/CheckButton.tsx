@@ -6,7 +6,7 @@ interface CheckButtonInterface{
 
 export default function CheckButton(props:CheckButtonInterface){
     return(
-        <div>
+        <div className="checkButton">
             {!props.isGameOver &&  <button onClick={props.handleGameOver}>Check results</button>}
             {props.isGameOver &&  <button onClick={props.playAgain}>Play Again</button>}
         </div>

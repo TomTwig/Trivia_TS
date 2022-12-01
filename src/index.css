@@ -1,6 +1,45 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+    font-size: 16px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.title{
+    text-align: center;
+}
+
+
 .question__answers{
     display: flex;
     gap: 1em;
+}
+
+.question{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.questionsList{
+    max-width: 75%;
+
 }
 
 .questionsList__questions{
@@ -9,11 +48,13 @@
     flex-direction: column;
 }
 button{
-    border-radius: 10px;
-    border-width: 1px;
-    padding: 0.5em 1em;
-    background-color: white;
     
+    border-radius: 10px;
+    border-width: 2px;
+    padding: .5em 2em;
+    background-color: white;
+    border-color: rgba(0, 0, 0, .2);
+    font-size: 14px;
 }
 
 .selected button{
@@ -26,4 +67,16 @@ button{
 
 .red button{
     background-color: lightcoral;
+}
+.checkButton {
+    align-self: center;
+}
+
+.checkButton button{
+    padding: 1em 2em;
+
+}
+.checkButton button:active{
+    transform: scale(.95);
+    
 }

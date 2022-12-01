@@ -24,7 +24,9 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="container">
+
+      <h1 className='title'>Trivia</h1>
 
       <QuestionList isGameOver={isGameOver} amountRounds={amountRounds} />
 
