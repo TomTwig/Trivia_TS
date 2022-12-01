@@ -9,14 +9,10 @@ interface QuestionInterface {
   question: string;
   isSelected: boolean;
   isGameOver: boolean;
-  amountRounds: number
+  amountRounds: number;
 }
 
 export default function Question(props: QuestionInterface) {
-
-
-
-  
   const combineAnswers = props.incorrect_answers.filter(
     (answer) => answer !== props.correct_answer
   );
@@ -33,35 +29,27 @@ export default function Question(props: QuestionInterface) {
     };
   });
 
-  useEffect(()=>{
+  useEffect(() => {
+    const combineAnswers = props.incorrect_answers.filter(
+      (answer) => answer !== props.correct_answer
+    );
+    combineAnswers.push(props.correct_answer);
 
+    const randomizeAnswers = combineAnswers.sort(() => 0.5 - Math.random());
 
-      const combineAnswers = props.incorrect_answers.filter(
-        (answer) => answer !== props.correct_answer
-      );
-      combineAnswers.push(props.correct_answer);
-    
-      const randomizeAnswers = combineAnswers.sort(() => 0.5 - Math.random());
-    
-      const answers = randomizeAnswers.map((answer, index) => {
-        return {
-          id: nanoid(),
-          answer: answer,
-          isSelected: false,
-          isCorrect: answer === props.correct_answer,
-        };
-      });
-    
-     
-    
-    setPossibleAnswers(answers)
+    const answers = randomizeAnswers.map((answer, index) => {
+      return {
+        id: nanoid(),
+        answer: answer,
+        isSelected: false,
+        isCorrect: answer === props.correct_answer,
+      };
+    });
 
+    setPossibleAnswers(answers);
+  }, [props.amountRounds, props.correct_answer, props.incorrect_answers]);
 
-
-  },[props.amountRounds, props.correct_answer, props.incorrect_answers])
-
-  console.log("answers",answers);
-  
+  console.log("answers", answers);
 
   const [possibleAnswers, setPossibleAnswers] = useState(answers);
   interface AnswerInterface {

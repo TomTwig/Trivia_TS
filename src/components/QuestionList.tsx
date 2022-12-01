@@ -2,39 +2,36 @@ import { useState, useEffect } from "react";
 import Question from "./Question";
 
 interface QuestionListInterface {
-  isGameOver: boolean,
-  amountRounds: number
+  isGameOver: boolean;
+  amountRounds: number;
 }
 
-export default function QuestionList(props:QuestionListInterface) {
-
+export default function QuestionList(props: QuestionListInterface) {
   interface QuestionInterface {
     id: string;
     correct_answer: string;
     incorrect_answers: string[];
     question: string;
-    isSelected:boolean
+    isSelected: boolean;
   }
   const [questions, setQuestions] = useState([]);
-
 
   useEffect(() => {
     const url: string = "https://opentdb.com/api.php?amount=5&type=multiple";
     async function getQuestions() {
       const response = await fetch(url);
       const data = await response.json();
-      const simplifyData = data.results.map((question:QuestionInterface)=>{
-
+      const simplifyData = data.results.map((question: QuestionInterface) => {
         return {
           id: question.id,
           correct_answer: question.correct_answer,
           incorrect_answers: question.incorrect_answers,
           question: question.question,
-          isSelected : false,
-        }
-      })
+          isSelected: false,
+        };
+      });
       setQuestions(() => {
-        return simplifyData
+        return simplifyData;
       });
     }
     getQuestions();
@@ -55,13 +52,11 @@ export default function QuestionList(props:QuestionListInterface) {
                   isSelected={question.isSelected}
                   isGameOver={props.isGameOver}
                   amountRounds={props.amountRounds}
-                 
                 />
               );
             })
           : "Loading..."}
       </div>
     </div>
-    
   );
 }
