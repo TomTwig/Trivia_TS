@@ -107,24 +107,19 @@ button {
   transform: scale(0.95);
 }
 
-
-@media screen and (max-width: 768px){
-
-  body{
-    
+@media screen and (max-width: 768px) {
+  body {
     height: 100%;
     width: 100%;
     padding: 2em;
   }
 
-  .question__answers{
+  .question__answers {
     flex-direction: column;
     align-items: center;
-
   }
-  .question{
+  .question {
     max-width: none;
     width: 100%;
   }
-  
 }

@@ -23,9 +23,7 @@ function App() {
       <div className="background__image"></div>
       <div className="container">
         <h1 className="title">Trivia</h1>
-
         <QuestionList isGameOver={isGameOver} amountRounds={amountRounds} />
-
         <CheckButton
           handleGameOver={handleGameOver}
           playAgain={playAgain}
