@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.879ca7ad.css",
-    "main.js": "/react-gh-pages/static/js/main.389454e0.js",
-    "static/media/background_seamless.jpg": "/react-gh-pages/static/media/background_seamless.c895b7fa41d1270ab488.jpg",
-    "index.html": "/react-gh-pages/index.html",
-    "main.879ca7ad.css.map": "/react-gh-pages/static/css/main.879ca7ad.css.map",
-    "main.389454e0.js.map": "/react-gh-pages/static/js/main.389454e0.js.map"
+    "main.css": "/Trivia_TS/static/css/main.f6f75d70.css",
+    "main.js": "/Trivia_TS/static/js/main.389454e0.js",
+    "static/media/background_seamless.jpg": "/Trivia_TS/static/media/background_seamless.c895b7fa41d1270ab488.jpg",
+    "index.html": "/Trivia_TS/index.html",
+    "main.f6f75d70.css.map": "/Trivia_TS/static/css/main.f6f75d70.css.map",
+    "main.389454e0.js.map": "/Trivia_TS/static/js/main.389454e0.js.map"
   },
   "entrypoints": [
-    "static/css/main.879ca7ad.css",
+    "static/css/main.f6f75d70.css",
     "static/js/main.389454e0.js"
   ]
 }
