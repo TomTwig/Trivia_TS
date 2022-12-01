@@ -37,19 +37,18 @@ export default function Question(props: Question) {
 
   function handleClick(event: any, id: string) {
     setPossibleAnswers((prevState) => {
-      const selectedAnswer = prevState.find((answer) => answer.id === id);
-      if (selectedAnswer) {
-        selectedAnswer.isSelected = selectedAnswer.isSelected ? false : true;
-      }
-
-      const otherAnswers = prevState.filter((answer) => answer.id !== id);
-
-      otherAnswers.push(selectedAnswer!);
-
-      return otherAnswers;
-    });
-    console.log(possibleAnswers)
-  }
+      const newState = prevState.map((answer)=>{
+        if( answer.id === id){
+          answer.isSelected = answer.isSelected ? false : true;
+        }else{
+          answer.isSelected = false
+        }
+        return answer
+      });
+     return newState
+  });
+  
+}
 
   return (
     <div className="question">
