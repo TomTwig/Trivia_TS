@@ -20,11 +20,7 @@ function App() {
 
   return (
     <>
-      <img
-        className="background__image"
-        src="../background_seamless.jpg"
-        alt="background colorful polka"
-      />
+      <div className="background__image"></div>
       <div className="container">
         <h1 className="title">Trivia</h1>
 
